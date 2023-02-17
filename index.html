@@ -16,13 +16,39 @@
         </nav>
     </header>
     <main>
+        <h1>Git info</h1>
         <section>
             <img src="./images/git-github.png" alt="Git picture">
             <p>Git is a distributed version control system that tracks changes in any set of computer files,
                 usually used for coordinating work among programmers collaboratively developing source code during
                 software development. Its goals include speed, data integrity, and support for distributed, non-linear
                 workflows (thousands of parallel branches running on different systems).</p>
-            <img src="./images/tiger_laying_hero_background.jpg" alt="tiger picture" width="300">
+            <h2>Git commands</h2>
+            <ol>
+                <li><b>Git clone</b> - This command is for downloading existing source code from a remote
+                    repository.
+                </li>
+                <li><b>Git branch</b> - This command shows branches in the project. They are highly important in the git
+                    world. By using branches, several developers are able to work in parallel on the same project
+                    simultaneously: <i>git branch (branch-name)</i></li>
+                <li><b>Git checkout</b> - This command is being used to swap between the branches.</li>
+                <li><b>Git status</b> - The Git status command gives us all the necessary information about the current
+                    branch. </li>
+                <li><b>Git add</b> - This command includes the changes of a file(s) into our next commit. We can use
+                    <i> git add (file)</i> for a specific file or <i>git add .</i> to add all changes.
+                </li>
+                <li><b>Git commit</b> - This command is used to save our changes.
+                    Git commit is like setting a checkpoint in the development process which you can go back to later if
+                    needed. + We need to leave a comment: <i>git commit -m "commit message"</i></li>
+                <li><b>Git push</b> - This command is used after commiting the changes to send them to the remote
+                    server. It upploads all the commits to the remote repository.</li>
+                <li><b>Git pull</b> - This command is used to get updates from the remote repository.</li>
+                <li><b>Git revert</b> - This command is used to undo the changes. To see our commit history, first we
+                    need to use <i> git log -- oneline:</i>
+                </li>
+                <li><b>Git merge</b> - This command is used to merge the branch with a parent one. Git merge basically
+                    integrates your feature branch with all of its commits back to the dev (or master) branch. </li>
+            </ol>
         </section>
     </main>
 </body>
