@@ -1,5 +1,7 @@
 table {
   border: 1px solid;
+  width: 370px;
+  height: 218px;
 }
 
 td,
@@ -11,15 +13,35 @@ th {
 .container {
   min-width: 1440px;
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.border_calendar {
+  border: 1px solid;
 }
 
 .wrapper_1,
 .wrapper_2 {
   display: flex;
-  /* align-items: center; */
   justify-content: center;
+  padding: 5px;
 }
 
 .weeks {
   background: yellow;
+}
+
+.headline {
+  text-align: center;
+}
+
+.January,
+.March {
+  padding-right: 10px;
+}
+
+.February,
+.April {
+  padding-left: 10px;
 }
