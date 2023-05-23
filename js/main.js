@@ -1,36 +1,41 @@
 "use strict";
 
-if (1) {
-	console.log("Ok!");
-} else {
-	console.log("Error");
-}
+// arr.pop(); метод удаления (с конца);
+// arr.push(10); метод добавления (в конец);
+// for; используем цикл. Цикл будет отрабатывать до тех пор, пока не закончатся элементы внутри массива;
+// for of; конструкция перебора, которая работает только с массиво-подобными сущностями:
+// (массив, строка, псевдомассив, map, set, определенные элементы со страницы);
+// forEach; (самый часто используемый метод), позволяет гибко перебрать все элементы массива;
+// 
 
+// console.log(arr);
 
-
-// if (num < 49) {
-// 	console.log("Error");
-// } else if (num > 100) {
-// 	console.log("Много");
-// } else {
-// 	console.log("Ok!");
+// for (let i = 0; i < arr.length; i++) {
+// 	console.log(arr[i]);
 // }
 
-// (num === 50) ?  console.log("Ok!") : console.log("Error");
+// for (let value of arr) {
+// 	console.log(value);
+// }
 
-const num = 50;
+// const arr = [2, 3, 6, 8, 10];
 
-switch (num) {
-case 49:
-	console.log("Неверно");
-	break;
-case 100:
-	console.log ("Неверно");
-	break;
-case 50:
-	console.log("В точку!");
-	break;
-default:
-	console.log("Не в этот раз");
-	break;
+// arr.forEach(function(item, i, arr){
+// 	console.log(`${i}: ${item} внутри массива ${arr}`);
+// });
+
+// for / for of - используем, когда нужно будет остановить цикл (break, continue) полностью, либо пропустить одно повторение
+// forEach - нельзя будет остановить, так как break и continue здесь не работают
+
+const str = prompt("", "");
+const products = str.split(", ");
+products.sort();
+console.log(products.join("; ")); 
+
+const arr = [2, 13, 26, 8, 10];
+arr.sort(compareNum);
+console.log(arr);
+
+function compareNum(a, b,) {
+	return a - b;
 }
