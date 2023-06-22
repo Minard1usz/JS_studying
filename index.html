@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Пуста сторінка</title>
+    <title>Hello</title>
 </head>
 
 <body>
@@ -14,7 +14,18 @@
     </header>
 
     <main>
+        <script>
+            let userName = prompt('What\'s your name?')
+            console.log(userName);
 
+            let result = confirm('Hello ' + userName + '! \n Are you feeling good?')
+            if (result) {
+                alert(`Great ${userName}! \n Glad to hear this!`)
+            } else {
+                alert(`Ough! It's sad to hear that. \n Hopefully, it won't be for long!`)
+            }
+            console.log(result);
+        </script>
     </main>
 
     <footer>
@@ -22,6 +33,6 @@
     </footer>
 
 </body>
-<script src="./js/script.js"></script>
+<!-- <script src="./js/script.js"></script> -->
 
 </html>
