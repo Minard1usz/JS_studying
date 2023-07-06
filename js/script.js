@@ -1,11 +1,9 @@
 // // 1. Вивести на сторінку в один рядок через кому числа від 10 до 20.
 let num = 10;
 while (num <= 20) {
-    document.write(num + ', ');     
+    console.log(num + ', ');     
     num++;
 }
-document.write('<br>')
-document.write('<br>')
 
 // // або
 // for(let number = 10; number <= 20; number = number + 1)
@@ -37,20 +35,19 @@ for(let num4 = 0; num4 <= 15; num4++) {
 console.log(sum4);
 
 // //5. Знайти добуток усіх цілих чисел від 15 до 35.
-let mult5 = 1;
-for(let num5 = 15; num5 <= 35; num5++) {
+let mult5 = 1n;
+for(let num5 = 15n; num5 <= 35n; num5++) {
     mult5 = mult5*num5;
 }
 console.log(mult5);
 
 // //6. Знайти середнє арифметичне всіх цілих чисел від 1 до 500.
 let sum6 = 0;
-let divider6 = 2;
 let result6;
 
 for(let num6 = 1; num6 <= 500; num6++) {
     sum6 = sum6 + num6;
-    result6 = sum6 / divider6
+    result6 = sum6 / num6;
 }
 console.log(result6);
 
@@ -73,45 +70,35 @@ for(; num8 <= 200; num8++) {
 }
 
 //9. Дано натуральне число. Знайти та вивести на сторінку всі його дільники.
-let n = +prompt('Введіть натуральне число');
+//10. Визначити кількість його парних дільників.
+//11. Знайти суму його парних дільників.
 
-for (i = 1; i <= n; i++) {
-    if (n % i == 0) {
-        alert(`Дільники вашого числа це: ${i}`);
-        console.log(i);
-        document.write(i + ', ');
+let number10 = 10;
+let sum10 = 0;
+
+for (i = 1; i <= number10; i++) {
+    if (number10 % i == 0) {
+        console.log(`Дільники вашого числа це: ${i}`);
     }
 }
-
-//10. Визначити кількість його парних дільників.
-let n = +prompt('Введіть натуральне число');
-let divisorsNumber = 0;
-
-for (i = 0; i <= n; i = i + 2) {
-    if (n % i == 0) {
-        alert(`Парні дільники вашого числа це: ${i}`);
-        console.log(i);
+for (i = 0; i <= number10; i = i + 2) {
+    if (number10 % i == 0) {
+        console.log(`Парні дільники вашого числа це: ${i}`);
     } 
 }
-
-//11. Знайти суму його парних дільників.
-let n = +prompt('Введіть натуральне число');
-let sum11 = 0;
-
-for (i = 0; i <= n; i = i + 2) {
-    if (n % i == 0) {
-        alert(`Парні дільники вашого числа це: ${i}`);
-        console.log(i);
-        sum11 = sum11 + i;
+for (i = 0; i <= number10; i = i + 2) {
+    if (number10 % i == 0) {
+        sum10 = sum10 + i;
     }
 }
-console.log(sum11);
+console.log(`Сума парних дільників вашого числа це: ${sum10}`);
+
 
 //12. Надрукувати повну таблицю множення від 1 до 10.
 for (i = 1; i <= 10; i = i + 1) {
     for (j = 1; j <= 10; j = j + 1) {
         number = i * j;
-        document.write(' ' + number + ' ')
+        console.log(' ' + number + ' ')
     }
-    document.write('<br>')
 }
+
