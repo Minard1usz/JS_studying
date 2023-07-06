@@ -11,7 +11,7 @@ function numbersChecker() {
         console.log(numberOne);
     } if (numberOne === null) {
         alert('Жаль. Сподіваюсь ще побачитись!');
-        return numberOne;
+        return;
     }
 
     numberTwo = prompt('Введіть число "b" ');
@@ -22,7 +22,7 @@ function numbersChecker() {
         console.log(numberTwo);
     } if (numberTwo === null) {
         alert('Жаль. Сподіваюсь ще побачитись!');
-        return numberTwo;
+        return;
     }
 
     numberThree = prompt('Введіть число "c" ');
@@ -33,7 +33,7 @@ function numbersChecker() {
         console.log(numberThree);
     } if (numberThree === null) {
         alert('Жаль. Сподіваюсь ще побачитись!');
-        return numberThree;
+        return;
     }
 }
 
@@ -53,7 +53,7 @@ function quad(a, b, c) {
     } return;
 }
 
+
 numbersChecker();
 alert(quad(a = `${numberOne}`, b = `${numberTwo}`, c = `${numberThree}`));
 console.log(quad(a = `${numberOne}`, b = `${numberTwo}`, c = `${numberThree}`));
-
