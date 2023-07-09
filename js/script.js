@@ -66,4 +66,25 @@ function quad(a, b, c) {
 numbersChecker();
 
 
-// awdawawda
+// function mainFunc(callback, callback2) {
+//     document.write('I am main function');
+//     callback('info');
+//     callback2();
+// }
+
+
+
+// function extra2() {
+//     document.write('\nI am the second function');
+//     console.log('again');
+// }
+
+
+
+
+// function extra3() {
+//     document.write('\nI am the the third function');
+//     console.log('check me');
+// }
+
+// mainFunc(extra3, extra2);
