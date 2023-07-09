@@ -11,38 +11,40 @@ function numbersChecker() {
         numberOne = prompt('Введіть число "a"');
     } if (!isNaN(numberOne)) {
         console.log(numberOne);
-    } if (numberOne === null) {
+    } if (numberOne === null || !numberOne) {
         alert('Жаль. Сподіваюсь ще побачитись!');
         console.log('Користувач відмовився вводити дані');
-        return numberOne;
+        return;
     } 
 
-    numberTwo = prompt('Введіть число "b" ');
+
+    numberTwo = prompt(`Користува ввів число "a" = ${numberOne}` + ' \nВведіть число "b" ');
     while (isNaN(numberTwo)) {
         alert('Це не число, будь ласка, введіть число');
         numberTwo = prompt('Введіть число "b"');
     } if (!isNaN(numberTwo)) {
         console.log(numberTwo);
-    } if (numberTwo === null) {
+    } if (numberOne === null || !numberOne) {
         alert('Жаль. Сподіваюсь ще побачитись!');
         console.log('Користувач відмовився вводити дані');
-        return numberTwo;
-    }
+        return;
+    } 
 
-    numberThree = prompt('Введіть число "c" ');
+    numberThree = prompt(`Користува ввів число "a" = ${numberOne}` + `\nКористувач ввів число "b" = ${numberTwo}` + ' \nВведіть число "c" ');
     while (isNaN(numberThree)) {
         alert('Це не число, будь ласка, введіть число');
         numberThree = prompt('Введіть число "c" ');
     } if (!isNaN(numberThree)) {
         console.log(numberThree);
-    } if (numberThree === null) {
+    } if (numberOne === null || !numberOne) {
         alert('Жаль. Сподіваюсь ще побачитись!');
         console.log('Користувач відмовився вводити дані');
-        return numberThree;
-    }
+        return;
+    } 
 
-    return alert(quad(a = `${numberOne}`, b = `${numberTwo}`, c = `${numberThree}`)),
-     console.log(quad(a = `${numberOne}`, b = `${numberTwo}`, c = `${numberThree}`)); 
+    return alert(`Користува ввів число "a" = ${numberOne}` + `\nКористувач ввів число "b" = ${numberTwo}` + `\nКористувач ввів число "c" = ${numberThree}`), 
+    alert(quad(a = `${numberOne}`, b = `${numberTwo}`, c = `${numberThree}`)),
+    console.log(quad(a = `${numberOne}`, b = `${numberTwo}`, c = `${numberThree}`)); 
     
 } 
 
