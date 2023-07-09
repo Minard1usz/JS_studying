@@ -2,6 +2,8 @@ let numberOne;
 let numberTwo;
 let numberThree;
 
+alert('Будемо знаходить рішення квадратного рівняння виду:\nax^2 + bx + c = 0');
+
 function numbersChecker() {
     numberOne = prompt('Введіть число "a" ');
     while (isNaN(numberOne)) {
@@ -11,8 +13,9 @@ function numbersChecker() {
         console.log(numberOne);
     } if (numberOne === null) {
         alert('Жаль. Сподіваюсь ще побачитись!');
-        return;
-    }
+        console.log('Користувач відмовився вводити дані');
+        return numberOne;
+    } 
 
     numberTwo = prompt('Введіть число "b" ');
     while (isNaN(numberTwo)) {
@@ -22,7 +25,8 @@ function numbersChecker() {
         console.log(numberTwo);
     } if (numberTwo === null) {
         alert('Жаль. Сподіваюсь ще побачитись!');
-        return;
+        console.log('Користувач відмовився вводити дані');
+        return numberTwo;
     }
 
     numberThree = prompt('Введіть число "c" ');
@@ -33,9 +37,15 @@ function numbersChecker() {
         console.log(numberThree);
     } if (numberThree === null) {
         alert('Жаль. Сподіваюсь ще побачитись!');
-        return;
+        console.log('Користувач відмовився вводити дані');
+        return numberThree;
     }
-}
+
+    return alert(quad(a = `${numberOne}`, b = `${numberTwo}`, c = `${numberThree}`)),
+     console.log(quad(a = `${numberOne}`, b = `${numberTwo}`, c = `${numberThree}`)); 
+    
+} 
+
 
 function quad(a, b, c) {
     if(a == 0) return "a = 0. Рівняння не має рішень";
@@ -51,9 +61,6 @@ function quad(a, b, c) {
     } else if (D < 0) {
         return "D < 0. Рівняння не має рішень";
     } return;
-}
-
+} 
 
 numbersChecker();
-alert(quad(a = `${numberOne}`, b = `${numberTwo}`, c = `${numberThree}`));
-console.log(quad(a = `${numberOne}`, b = `${numberTwo}`, c = `${numberThree}`));
