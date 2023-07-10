@@ -1,8 +1,10 @@
-let numberOne;
-let numberTwo;
-let numberThree;
+
 
 alert('Будемо знаходить рішення квадратного рівняння виду:\nax^2 + bx + c = 0');
+
+
+
+
 
 function numbersChecker() {
     numberOne = prompt('Введіть число "a" ');
@@ -68,10 +70,11 @@ function quad(a, b, c) {
 numbersChecker();
 
 
-// function mainFunc(callback, callback2) {
+// function mainFunc(callback, callback2, callback3) {
 //     document.write('I am main function');
-//     callback('info');
+//     callback();
 //     callback2();
+//     callback3()
 // }
 
 
@@ -89,4 +92,9 @@ numbersChecker();
 //     console.log('check me');
 // }
 
-// mainFunc(extra3, extra2);
+// function extra4() {
+//     document.write('\nNumber 4');
+//     console.log('poslednyaya');
+// }
+
+// mainFunc(extra3, extra2, extra4);
