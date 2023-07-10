@@ -24,7 +24,7 @@ function numbersChecker() {
         numberTwo = prompt('Введіть число "b"');
     } if (!isNaN(numberTwo)) {
         console.log(numberTwo);
-    } if (numberOne === null || !numberOne) {
+    } if (numberTwo === null || !numberTwo) {
         alert('Жаль. Сподіваюсь ще побачитись!');
         console.log('Користувач відмовився вводити дані');
         return;
@@ -36,7 +36,7 @@ function numbersChecker() {
         numberThree = prompt('Введіть число "c" ');
     } if (!isNaN(numberThree)) {
         console.log(numberThree);
-    } if (numberOne === null || !numberOne) {
+    } if (numberThree === null || !numberThree) {
         alert('Жаль. Сподіваюсь ще побачитись!');
         console.log('Користувач відмовився вводити дані');
         return;
