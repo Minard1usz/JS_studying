@@ -1,153 +1,109 @@
+// 1) Знайти суму та кількість позитивних елементів.
+// сума позитивних елементів
+let arr = [16,-37,54,-4,72,-56,47,4,-16,25,-37,46,4,-51,27,-63,4,-54,76,-4,12,-35,4,47];
+let res = arr.reduce(function(sum, elem) {
+    if (elem >= 0) {
+        return sum + elem;
+    } else {
+        return sum;
+    }
+});
+console.log('сума позитивних елментів масиву = ' + res);
+
+//кількість позитивних елементів
+let arr2 = [16,-37,54,-4,72,-56,47,4,-16,25,-37,46,4,-51,27,-63,4,-54,76,-4,12,-35,4,47];
+let positive = arr2.filter(elem => (elem>0));
+console.log('кількість позитивних елментів масиву = ' + positive.length);
 
 
-alert('Будемо знаходить рішення квадратного рівняння виду:\nax^2 + bx + c = 0');
+// 2) Знайти мінімальний елемент масиву та його порядковий номер, спосіб "spread" (...arr)
+let arr3 = [16,-37,54,-4,72,-56,47,4,-16,25,-37,46,4,-51,27,-63,4,-54,76,-4,12,-35,4,47];
+let min = Math.min(...arr3);
+console.log('мінімальний елемент масиву = '+ min);
+console.log('порядковий номер мінімального елменту масиву = ' + arr3.indexOf(-63));
 
+// 3) Знайти максимальний елемент масиву та його порядковий номер.
+let arr4 = [16,-37,54,-4,72,-56,47,4,-16,25,-37,46,4,-51,27,-63,4,-54,76,-4,12,-35,4,47];
+let max = Math.max(...arr4);
+console.log('максимальний елемент масиву = ' + max);
+console.log('порядковий номер мінімального елменту масиву = ' + arr4.indexOf(76));
 
-function promptUserForNumber() {
-    // numberOne = prompt('Введіть число "a" ');
-    // if (numberOne === null || !numberOne) {
-    //     alert('Жаль. Сподіваюсь ще побачитись!');
-    //     console.log('Користувач відмовився вводити дані');
-    //     return;
-    // } 
-    while (isNaN(numberOne)) {
-        alert('Це не число, будь ласка, введіть число');
-        numberOne = prompt('Введіть число "a"'); 
-    }   
-    // numberTwo = prompt(`Користувач ввів число "a" = ${numberOne}` + ' \nВведіть число "b" ');
-    while (isNaN(numberTwo)) {
-        alert('Це не число, будь ласка, введіть число');
-        numberTwo = prompt(`Користувач ввів число "a" = ${numberOne}` + ' \nВведіть число "b" ');
-    } 
-    // numberThree = prompt(`Користувач ввів число "a" = ${numberOne}` + `\nКористувач ввів число "b" = ${numberTwo}` + ' \nВведіть число "c" ');
-    while (isNaN(numberThree)) {
-        alert('Це не число, будь ласка, введіть число');
-        numberThree = prompt(`Користувач ввів число "a" = ${numberOne}` + `\nКористувач ввів число "b" = ${numberTwo}` + ' \nВведіть число "c" ');
-    } 
-    if (!isNaN(numberOne)) {
-        console.log(numberOne, numberTwo, numberThree);
-    } 
+// 4) Визначити кількість негативних елементів
+let arr4 = [16,-37,54,-4,72,-56,47,4,-16,25,-37,46,4,-51,27,-63,4,-54,76,-4,12,-35,4,47];
+let negative = arr4.filter(elem =>(elem<0));
+console.log('кількість негативних елементів масиву = ' + negative.length);
 
-    return alert(`Користува ввів число "a" = ${numberOne}` + `\nКористувач ввів число "b" = ${numberTwo}` + `\nКористувач ввів число "c" = ${numberThree}`), 
-    alert(quad(a = `${numberOne}`, b = `${numberTwo}`, c = `${numberThree}`)),
-    console.log(quad(a = `${numberOne}`, b = `${numberTwo}`, c = `${numberThree}`)); 
+// 5) Знайти кількість непарних позитивних елементів
+// вивоидмо всі позитивні елементи
+let arr5 = [16,-37,54,-4,72,-56,47,4,-16,25,-37,46,4,-51,27,-63,4,-54,76,-4,12,-35,4,47];
+let result5 = arr5.filter(item => item > 0) .sort((a, b) => a - b);
+console.log('позитивні елементи масиву = ' + result5);
+
+// виводимо всі непарні позитивні елементи
+let arr5 = [4,  4,  4,  4, 12, 16, 25, 27, 46, 47, 47, 54, 72, 76];
+for (let i = 0; i < arr5.length; i++)
+if ((arr5[i] % 2) !== 0)
+console.log('позитивні непарні елементи масиву = ' + arr5[i]);
+
+// оголошуємо кількість непарних позитивних елементів
+let arr5 = [4,  4,  4,  4, 12, 16, 25, 27, 46, 47, 47, 54, 72, 76];
+function countOfOdd(arr5) {
+    return arr5.filter(item => item % 2).length;
+  }
+  console.log('кількість непарних позитивних елментів = ' + countOfOdd(arr5));
+
+// 6) Знайти кількість парних позитивних елементів
+// виводимо всі позитивні елементи
+let arr6 = [16,-37,54,-4,72,-56,47,4,-16,25,-37,46,4,-51,27,-63,4,-54,76,-4,12,-35,4,47];
+let result6 = arr6.filter(item => item > 0) .sort((a, b) => a - b);
+console.log('позитивні елементи масиву = ' + result6);
+
+// виводимо всі парні позитивні елементи
+let arr6 = [ 4,  4,  4,  4, 12, 16, 25, 27, 46, 47, 47, 54, 72, 76];
+for (let i = 0; i < arr6.length; i++)
+ if ((arr6[i] % 2) === 0)
+ console.log('парні позитивні елементи масиву = ' + arr6[i]); 
+
+// оголошуємо кількість парних поизтивних елементів
+ let arr6 = [ 4,  4,  4,  4, 12, 16, 25, 27, 46, 47, 47, 54, 72, 76];
+ console.log('кількість парних позитивних елментів = ' + arr6.reduce((sum, el) => el & 1 ? sum : ++sum, 0));
+
+// 7) Знайти суму парних позитивних елементів.
+let arr7 = [4, 4, 4, 4, 12, 16, 46, 54, 72, 76];
+arraySum(arr7);
+function arraySum(array) {
+    let sum = 0;
+for (let i = 0; i < array.length; i++) {
+    sum += array [i];
+}
+console.log('сума парних позитивних елементів масиваву = ' + sum);
 }
 
-function checkForNull() {
-    numberOne = prompt('Введіть число "a" ');
-    if (numberOne === null || !numberOne) {
-        alert('Жаль. Сподіваюсь ще побачитись!');
-        console.log('Користувач відмовився вводити дані');
-        return;
-    } 
-    numberTwo = prompt(`Користувач ввів число "a" = ${numberOne}` + ' \nВведіть число "b" ');
-    if (numberTwo === null || !numberTwo) {
-        alert('Жаль. Сподіваюсь ще побачитись!');
-        console.log('Користувач відмовився вводити дані');
-        return;
-    } 
-    numberThree = prompt(`Користувач ввів число "a" = ${numberOne}` + `\nКористувач ввів число "b" = ${numberTwo}` + ' \nВведіть число "c" ');
-    if (numberThree === null || !numberThree) {
-        alert('Жаль. Сподіваюсь ще побачитись!');
-        console.log('Користувач відмовився вводити дані');
-        return;
-    } 
+ // 8) Знайти суму непарних позитивних елементів.
+ let arr8 = [25, 27, 47, 47];
+ arraySum(arr8);
+function arraySum(array) {
+    let sum = 0;
+for (let i = 0; i < array.length; i++) {
+    sum += array [i];
+}
+console.log('сума непарних позитивних елементів масиву = ' + sum);
 }
 
-promptUserForNumber(checkForNull());
+// 9) Знайти добуток позитивних елементів.
+let arr9 = [ 4,  4,  4,  4, 12, 16, 25, 27, 46, 47, 47, 54, 72, 76];
+let result9 = 1;
+for (let i = 0; i < arr9.length; i++) {
+    result9 = result9 * arr9[i];
+}
+console.log('добуток позитивних елементів масиву = ' + result9);
 
+// 10) Знайти найбільший серед елементів масиву, решту обнулити.
+let arr10 = [16,-37,54,-4,72,-56,47,4,-16,25,-37,46,4,-51,27,-63,4,-54,76,-4,12,-35,4,47];
+let max10 = Math.max(...arr10);
+console.log('найбільший серед елементів масиву = ' + max10);
 
-
-
-
-function quad(a, b, c) {
-    if(a == 0) return "a = 0. Рівняння не має рішень";
-    const D = b * b - 4 * a * c;
-    let x1, x2;
-    if(D > 0) {
-        x1 = (-b + Math.sqrt(D)) / (2 * a);
-        x2 = (-b - Math.sqrt(D)) / (2 * a);
-        return "Коефіцієнти: a = "+a+", b = "+b+", c = "+c+" \nКорені рівняння: X1 = " + x1 + ", X2 = " + x2 + "\nДискримінант(D) = " + D;
-    } else if (D == 0) {
-        x1 = -b / (2*a);
-        return "D = 0. Єдиний корень рівняння: " + x1 + "";
-    } else if (D < 0) {
-        return "D < 0. Рівняння не має рішень";
-    } return;
-} 
-
-// numbersChecker();
-
-
-// function mainFunc(callback, callback2, callback3) {
-//     document.write('I am main function');
-//     callback();
-//     callback2();
-//     callback3()
-// }
-
-
-
-// function extra2() {
-//     document.write('\nI am the second function');
-//     console.log('again');
-// }
-
-
-
-
-// function extra3() {
-//     document.write('\nI am the the third function');
-//     console.log('check me');
-// }
-
-// function extra4() {
-//     document.write('\nNumber 4');
-//     console.log('poslednyaya');
-// }
-
-// mainFunc(extra3, extra2, extra4);
-
-// function numbersChecker() {
-    // numberOne = prompt('Введіть число "a" ');
-    // while (isNaN(numberOne)) {
-    //     alert('Це не число, будь ласка, введіть число');
-    //     numberOne = prompt('Введіть число "a"');
-    // } if (!isNaN(numberOne)) {
-    //     console.log(numberOne);
-    // } if (numberOne === null || !numberOne) {
-    //     alert('Жаль. Сподіваюсь ще побачитись!');
-    //     console.log('Користувач відмовився вводити дані');
-    //     return;
-    // } 
-
-
-//     numberTwo = prompt(`Користува ввів число "a" = ${numberOne}` + ' \nВведіть число "b" ');
-//     while (isNaN(numberTwo)) {
-//         alert('Це не число, будь ласка, введіть число');
-//         numberTwo = prompt('Введіть число "b"');
-//     } if (!isNaN(numberTwo)) {
-//         console.log(numberTwo);
-//     } if (numberOne === null || !numberOne) {
-//         alert('Жаль. Сподіваюсь ще побачитись!');
-//         console.log('Користувач відмовився вводити дані');
-//         return;
-//     } 
-
-//     numberThree = prompt(`Користува ввів число "a" = ${numberOne}` + `\nКористувач ввів число "b" = ${numberTwo}` + ' \nВведіть число "c" ');
-//     while (isNaN(numberThree)) {
-//         alert('Це не число, будь ласка, введіть число');
-//         numberThree = prompt('Введіть число "c" ');
-//     } if (!isNaN(numberThree)) {
-//         console.log(numberThree);
-//     } if (numberOne === null || !numberOne) {
-//         alert('Жаль. Сподіваюсь ще побачитись!');
-//         console.log('Користувач відмовився вводити дані');
-//         return;
-//     } 
-
-    // return alert(`Користувач ввів число "a" = ${numberOne}` + `\nКористувач ввів число "b" = ${numberTwo}` + `\nКористувач ввів число "c" = ${numberThree}`), 
-    // alert(quad(a = `${numberOne}`, b = `${numberTwo}`, c = `${numberThree}`)),
-    // console.log(quad(a = `${numberOne}`, b = `${numberTwo}`, c = `${numberThree}`)); 
-    
-// } 
+if (arr10 != Math.max(...arr10)) {
+    arr10 = 0;
+}
+console.log('решта = ' + arr10);
