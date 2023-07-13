@@ -1,109 +1,104 @@
 // 1) Знайти суму та кількість позитивних елементів.
 // сума позитивних елементів
 let arr = [16,-37,54,-4,72,-56,47,4,-16,25,-37,46,4,-51,27,-63,4,-54,76,-4,12,-35,4,47];
-let res = arr.reduce(function(sum, elem) {
-    if (elem >= 0) {
-        return sum + elem;
-    } else {
-        return sum;
+let sumOfPositiveElements = 0;
+for (i = 0; i < arr.length; i++) {
+    if (arr[i] > 0) {
+        sumOfPositiveElements +=arr[i];
     }
-});
-console.log('сума позитивних елментів масиву = ' + res);
+}
+console.log('сума позитивних елементів масиву = ' + sumOfPositiveElements);
 
 //кількість позитивних елементів
-let arr2 = [16,-37,54,-4,72,-56,47,4,-16,25,-37,46,4,-51,27,-63,4,-54,76,-4,12,-35,4,47];
-let positive = arr2.filter(elem => (elem>0));
-console.log('кількість позитивних елментів масиву = ' + positive.length);
+let numberOfPositiveElements = 0;
+for (i = 0; i < arr.length; i++) {
+    if (arr[i] > 0) {
+        numberOfPositiveElements++;
+    }
+}
+console.log('кількість позитивних елементів масиву = ' + numberOfPositiveElements);
 
+// 2) Знайти мінімальний елемент масиву та його порядковий номер
+let minNumber = arr[0];
+for (const item of arr) {
+    if (item < minNumber) {
+       minNumber = item;
+    }
+}
+console.log('мінімальний елемент масиву = '+ minNumber);
+console.log('порядковий номер мінімального елементу масиву = ' + arr.indexOf(minNumber));
 
-// 2) Знайти мінімальний елемент масиву та його порядковий номер, спосіб "spread" (...arr)
-let arr3 = [16,-37,54,-4,72,-56,47,4,-16,25,-37,46,4,-51,27,-63,4,-54,76,-4,12,-35,4,47];
-let min = Math.min(...arr3);
-console.log('мінімальний елемент масиву = '+ min);
-console.log('порядковий номер мінімального елменту масиву = ' + arr3.indexOf(-63));
 
 // 3) Знайти максимальний елемент масиву та його порядковий номер.
-let arr4 = [16,-37,54,-4,72,-56,47,4,-16,25,-37,46,4,-51,27,-63,4,-54,76,-4,12,-35,4,47];
-let max = Math.max(...arr4);
-console.log('максимальний елемент масиву = ' + max);
-console.log('порядковий номер мінімального елменту масиву = ' + arr4.indexOf(76));
+maxNumber = arr[0];
+for (const item of arr) {
+    if (item > maxNumber) {
+       maxNumber = item;
+    }
+}
+console.log('максимальний елемент масиву = ' + maxNumber);
+console.log('порядковий номер мінімального елементу масиву = ' + arr.indexOf(maxNumber));
 
 // 4) Визначити кількість негативних елементів
-let arr4 = [16,-37,54,-4,72,-56,47,4,-16,25,-37,46,4,-51,27,-63,4,-54,76,-4,12,-35,4,47];
-let negative = arr4.filter(elem =>(elem<0));
-console.log('кількість негативних елементів масиву = ' + negative.length);
+numberOfNegativeElements = 0;
+for (i = 0; i < arr.length; i++) {
+    if (arr[i] < 0) {
+        numberOfNegativeElements++;
+    }
+}
+console.log('кількість негативних елементів масиву = ' + numberOfNegativeElements);
 
 // 5) Знайти кількість непарних позитивних елементів
-// вивоидмо всі позитивні елементи
-let arr5 = [16,-37,54,-4,72,-56,47,4,-16,25,-37,46,4,-51,27,-63,4,-54,76,-4,12,-35,4,47];
-let result5 = arr5.filter(item => item > 0) .sort((a, b) => a - b);
-console.log('позитивні елементи масиву = ' + result5);
-
-// виводимо всі непарні позитивні елементи
-let arr5 = [4,  4,  4,  4, 12, 16, 25, 27, 46, 47, 47, 54, 72, 76];
-for (let i = 0; i < arr5.length; i++)
-if ((arr5[i] % 2) !== 0)
-console.log('позитивні непарні елементи масиву = ' + arr5[i]);
-
-// оголошуємо кількість непарних позитивних елементів
-let arr5 = [4,  4,  4,  4, 12, 16, 25, 27, 46, 47, 47, 54, 72, 76];
-function countOfOdd(arr5) {
-    return arr5.filter(item => item % 2).length;
-  }
-  console.log('кількість непарних позитивних елментів = ' + countOfOdd(arr5));
+let numberOfOddPositiveElements = 0;
+    for (i = 0; i < arr.length; i++) {
+        if ((arr[i] % 2) !== 0 && arr[i] > 0) {
+            numberOfOddPositiveElements++;
+        }
+    }
+console.log('кількість непарних позитивних елементів масиву = ' + numberOfOddPositiveElements);
 
 // 6) Знайти кількість парних позитивних елементів
-// виводимо всі позитивні елементи
-let arr6 = [16,-37,54,-4,72,-56,47,4,-16,25,-37,46,4,-51,27,-63,4,-54,76,-4,12,-35,4,47];
-let result6 = arr6.filter(item => item > 0) .sort((a, b) => a - b);
-console.log('позитивні елементи масиву = ' + result6);
-
-// виводимо всі парні позитивні елементи
-let arr6 = [ 4,  4,  4,  4, 12, 16, 25, 27, 46, 47, 47, 54, 72, 76];
-for (let i = 0; i < arr6.length; i++)
- if ((arr6[i] % 2) === 0)
- console.log('парні позитивні елементи масиву = ' + arr6[i]); 
-
-// оголошуємо кількість парних поизтивних елементів
- let arr6 = [ 4,  4,  4,  4, 12, 16, 25, 27, 46, 47, 47, 54, 72, 76];
- console.log('кількість парних позитивних елментів = ' + arr6.reduce((sum, el) => el & 1 ? sum : ++sum, 0));
+let numberOfEvenPositiveElements = 0;
+    for (i = 0; i < arr.length; i++) {
+        if ((arr[i] % 2) === 0 && arr[i] > 0) {
+            numberOfEvenPositiveElements++;
+        }
+    }
+console.log('кількість парних позитивних елементів масиву = ' + numberOfEvenPositiveElements);
 
 // 7) Знайти суму парних позитивних елементів.
-let arr7 = [4, 4, 4, 4, 12, 16, 46, 54, 72, 76];
-arraySum(arr7);
-function arraySum(array) {
-    let sum = 0;
-for (let i = 0; i < array.length; i++) {
-    sum += array [i];
+let sumOfEvenPositiveElements = 0;
+for (i = 0; i < arr.length; i++) {
+    if ((arr[i] % 2) === 0 && arr[i] > 0) {
+        sumOfEvenPositiveElements += arr[i];
+    }
 }
-console.log('сума парних позитивних елементів масиваву = ' + sum);
-}
+console.log('сума парних позитивних елементів масиву = ' + sumOfEvenPositiveElements);
 
- // 8) Знайти суму непарних позитивних елементів.
- let arr8 = [25, 27, 47, 47];
- arraySum(arr8);
-function arraySum(array) {
-    let sum = 0;
-for (let i = 0; i < array.length; i++) {
-    sum += array [i];
+//  8) Знайти суму непарних позитивних елементів.
+let sumOfOddPositiveElements = 0;
+for (i = 0; i < arr.length; i++) {
+    if ((arr[i] % 2) !== 0 && arr[i] > 0) {
+        sumOfOddPositiveElements += arr[i];
+    }
 }
-console.log('сума непарних позитивних елементів масиву = ' + sum);
-}
+console.log('сума непарних позитивних елементів масиву = ' + sumOfOddPositiveElements);
 
 // 9) Знайти добуток позитивних елементів.
-let arr9 = [ 4,  4,  4,  4, 12, 16, 25, 27, 46, 47, 47, 54, 72, 76];
-let result9 = 1;
-for (let i = 0; i < arr9.length; i++) {
-    result9 = result9 * arr9[i];
+let multiplicationOfPositiveElements = 1;
+for (i = 0; i < arr.length; i++) {
+    if (arr[i] > 0) {
+        multiplicationOfPositiveElements = multiplicationOfPositiveElements * arr[i];
+    }
 }
-console.log('добуток позитивних елементів масиву = ' + result9);
+console.log('добуток позитивних елементів масиву елементів масиву = ' + multiplicationOfPositiveElements);
 
 // 10) Знайти найбільший серед елементів масиву, решту обнулити.
-let arr10 = [16,-37,54,-4,72,-56,47,4,-16,25,-37,46,4,-51,27,-63,4,-54,76,-4,12,-35,4,47];
-let max10 = Math.max(...arr10);
-console.log('найбільший серед елементів масиву = ' + max10);
-
-if (arr10 != Math.max(...arr10)) {
-    arr10 = 0;
+maxNumber = arr[0];
+for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > maxNumber) {
+        maxNumber = arr[i];
+    }
 }
-console.log('решта = ' + arr10);
+let res = arr.map(val => maxNumber !== val ? 0 : val);
+console.log(res);
