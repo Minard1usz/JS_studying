@@ -1,25 +1,18 @@
 
 
 alert('Будемо знаходить рішення квадратного рівняння виду:\nax^2 + bx + c = 0');
-
+    
 
 function promptUserForNumber() {
-    // numberOne = prompt('Введіть число "a" ');
-    // if (numberOne === null || !numberOne) {
-    //     alert('Жаль. Сподіваюсь ще побачитись!');
-    //     console.log('Користувач відмовився вводити дані');
-    //     return;
-    // } 
+
     while (isNaN(numberOne)) {
         alert('Це не число, будь ласка, введіть число');
         numberOne = prompt('Введіть число "a"'); 
     }   
-    // numberTwo = prompt(`Користувач ввів число "a" = ${numberOne}` + ' \nВведіть число "b" ');
     while (isNaN(numberTwo)) {
         alert('Це не число, будь ласка, введіть число');
         numberTwo = prompt(`Користувач ввів число "a" = ${numberOne}` + ' \nВведіть число "b" ');
     } 
-    // numberThree = prompt(`Користувач ввів число "a" = ${numberOne}` + `\nКористувач ввів число "b" = ${numberTwo}` + ' \nВведіть число "c" ');
     while (isNaN(numberThree)) {
         alert('Це не число, будь ласка, введіть число');
         numberThree = prompt(`Користувач ввів число "a" = ${numberOne}` + `\nКористувач ввів число "b" = ${numberTwo}` + ' \nВведіть число "c" ');
@@ -34,30 +27,26 @@ function promptUserForNumber() {
 }
 
 function checkForNull() {
+
     numberOne = prompt('Введіть число "a" ');
     if (numberOne === null || !numberOne) {
         alert('Жаль. Сподіваюсь ще побачитись!');
         console.log('Користувач відмовився вводити дані');
-        return;
+        return numberOne;
     } 
     numberTwo = prompt(`Користувач ввів число "a" = ${numberOne}` + ' \nВведіть число "b" ');
     if (numberTwo === null || !numberTwo) {
         alert('Жаль. Сподіваюсь ще побачитись!');
         console.log('Користувач відмовився вводити дані');
-        return;
+        return numberTwo;
     } 
     numberThree = prompt(`Користувач ввів число "a" = ${numberOne}` + `\nКористувач ввів число "b" = ${numberTwo}` + ' \nВведіть число "c" ');
     if (numberThree === null || !numberThree) {
         alert('Жаль. Сподіваюсь ще побачитись!');
         console.log('Користувач відмовився вводити дані');
-        return;
+        return numberThree;
     } 
 }
-
-promptUserForNumber(checkForNull());
-
-
-
 
 
 function quad(a, b, c) {
@@ -76,78 +65,6 @@ function quad(a, b, c) {
     } return;
 } 
 
-// numbersChecker();
 
+promptUserForNumber(checkForNull());
 
-// function mainFunc(callback, callback2, callback3) {
-//     document.write('I am main function');
-//     callback();
-//     callback2();
-//     callback3()
-// }
-
-
-
-// function extra2() {
-//     document.write('\nI am the second function');
-//     console.log('again');
-// }
-
-
-
-
-// function extra3() {
-//     document.write('\nI am the the third function');
-//     console.log('check me');
-// }
-
-// function extra4() {
-//     document.write('\nNumber 4');
-//     console.log('poslednyaya');
-// }
-
-// mainFunc(extra3, extra2, extra4);
-
-// function numbersChecker() {
-    // numberOne = prompt('Введіть число "a" ');
-    // while (isNaN(numberOne)) {
-    //     alert('Це не число, будь ласка, введіть число');
-    //     numberOne = prompt('Введіть число "a"');
-    // } if (!isNaN(numberOne)) {
-    //     console.log(numberOne);
-    // } if (numberOne === null || !numberOne) {
-    //     alert('Жаль. Сподіваюсь ще побачитись!');
-    //     console.log('Користувач відмовився вводити дані');
-    //     return;
-    // } 
-
-
-//     numberTwo = prompt(`Користува ввів число "a" = ${numberOne}` + ' \nВведіть число "b" ');
-//     while (isNaN(numberTwo)) {
-//         alert('Це не число, будь ласка, введіть число');
-//         numberTwo = prompt('Введіть число "b"');
-//     } if (!isNaN(numberTwo)) {
-//         console.log(numberTwo);
-//     } if (numberOne === null || !numberOne) {
-//         alert('Жаль. Сподіваюсь ще побачитись!');
-//         console.log('Користувач відмовився вводити дані');
-//         return;
-//     } 
-
-//     numberThree = prompt(`Користува ввів число "a" = ${numberOne}` + `\nКористувач ввів число "b" = ${numberTwo}` + ' \nВведіть число "c" ');
-//     while (isNaN(numberThree)) {
-//         alert('Це не число, будь ласка, введіть число');
-//         numberThree = prompt('Введіть число "c" ');
-//     } if (!isNaN(numberThree)) {
-//         console.log(numberThree);
-//     } if (numberOne === null || !numberOne) {
-//         alert('Жаль. Сподіваюсь ще побачитись!');
-//         console.log('Користувач відмовився вводити дані');
-//         return;
-//     } 
-
-    // return alert(`Користувач ввів число "a" = ${numberOne}` + `\nКористувач ввів число "b" = ${numberTwo}` + `\nКористувач ввів число "c" = ${numberThree}`), 
-    // alert(quad(a = `${numberOne}`, b = `${numberTwo}`, c = `${numberThree}`)),
-    // console.log(quad(a = `${numberOne}`, b = `${numberTwo}`, c = `${numberThree}`)); 
-    
-// } 
