@@ -1,11 +1,14 @@
-function generateKey(keyLength, characters) {
-    characters = 'abcdefghijklmnopqrstuvwxyz0123456789'
-    let key = ''
-
-    for (let i = 0; i < keyLength; i++) {
-        key += characters.charAt(Math.floor(Math.random() * characters.length))
+function sum(result) {
+    result = 0;
+    return function (elem) {
+        result += elem;
+        console.log(result);
     }
-
-    return key.toUpperCase()
 }
-console.log(generateKey(20));
+
+
+let outcome = sum();
+
+outcome(3);
+outcome(5);
+outcome(20);
