@@ -1,148 +1,76 @@
-// firstName - ключ, "Denis" - значение
-// кавычки используются для ключей, которые будут невалидны без кавычек (мат. операторы и т д)
-
-const user = {
-  firstName: "Denis",
-  age: 30,
-  isAdmin: true,
-  email: 'test@test.com',
-  'user-address': {
-  city: "Kharkiv"
-  },
-  skills: ['html', 'css', 'js']
-};
-
-// как обратиться к значению:
-// объявляем переменную, вызываем её и добавляем ключ через точку
-// 1)
-let value;
-value = user.firstName;
-
-// 2)
-// через квадратные скобки + ключ в кавычках
-value = user['isAdmin'];
-value = user['user-address'];
-
-// чтобы получить вложенные свойства в объекте, используем квадратные скобки + значение через точку
-
-value = user['user-address'].city;
-// либо, обязательно ключ в кавычках, иначе будет искать переменную
-value = user['user-address']['city'];
-
-// с использованием квадратных скобок можно подставлять переменные, а через точку - нельзя.
-let prop = 'skills';
-value = user[prop];
-
-// если это массив, можно вызывать по индексу
-value = user[prop][0];
-
-// чтобы переписать свойства объекта, вызываем объект, затем после точки ключ и переназначаем его
-user.firstName = 'Den';
-value = user.firstName;
-
-// если обратиться к свойству, которого НЕТ в это объекте, тогда в объекте будет создано новое поле и его значение
-user.info = 'Some info';
-value = user.info;
-
-// если хотим перезаписать свойства вложенного объекта, нужно обратиться к объекту, квадратные скобки + ключ, точка, объект и перезаписываем значение
-user['user-address'].city = 'Kyiv';
-
-// также мы можем создать новый ключ, обращаясь к вложенному объекту
-user['user-address'].country = 'Ukraine';
-
-// если попытаться обратиться к несуществующему свойству и добавить новое свойство, тогда получим ошибку (нет существующего свойства = undefined)
-// user.plan.basic = 'basic';
-
-// но если бы там был объект (пустой, к примеру), тогда записать можно
-user.plan = {};
-user.plan.basic = 'basic';
-
-console.log(user.plan);
-console.log(value);
-console.log(user);
-
-
-
-
-
-
-
-//-----------------------------------------------------------------
-// Udemy
-// Объекты это структуры которые могут сохранять в себе абсолютно любые типы данных в формате ключ, значение
-// их можно перебрать через for in
-// получать свойства можем через точку или квадратные скобки
-// у объекта бывают встроенные методы и свойства
-// чтобы объект умел что-то делать, мы можем внутрь него записывать функции (методы нашего объекта)
-// есть еще свойства акцесоры get и set
-
-
-// создаеём объект
-const options = {
-  name: 'test',
-  width: 1024,
-  height: 1024,
-  colors: {
-    border: 'black',
-    bg: 'red'
-  },
-  makeTest: function() {
-    console.log("Test");
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
   }
-};
-
-console.log(options.name)
-
-// чтобы удалить свойство, используем delete
-delete options.name;
-console.log(options);
-
-// чтобы перебрать свойства объекта, используем цикл for in (for of для объекта не работает)
-for (let key in options) {
-  console.log(`Свойство ${key} имеет значение ${options[key]}`);
+  sayName() {
+    console.log(`Ім'я: ${this.name}`, `Вік: ${this.age}`)
+  } 
 }
 
-// если есть вложенность, выдаст [object Object] (это не ошибка, консоль просто не может превратить этот объект в строку)
-// чтобы вывести вложенный объект, необходимо сделать следующее
-for (let key in options) {
-  if (typeof(options[key]) === 'object') {
-    for (let i in options[key]) {
-      console.log(`Свойство ${i} имеет значение ${options[key][i]}`);
-      }  
-    } else {
-      console.log(`Свойство ${key} имеет значение ${options[key]}`);
+class Car {
+  brand;
+  model;
+  releaseYear;
+  numberPlate;
+  constructor(brand, model, releaseYear, numberPlate) {
+    this.brand = brand;
+    this.model = model;
+    this.releaseYear = releaseYear;
+    this.numberPlate = numberPlate;
+  }
+  assignOwner(owner) {
+    if (owner.age >= 18) {
+      return this.owner = owner;
+    } else if (owner.age < 18) {
+      return console.log(`Власнику ${owner.name} ще немає 18 років`);
     }
   }
 
-// у объектов нет метода length, поэтому чтобы узнать, сколько ключей есть в объекте, необходимо создать счётчик counter
-let counter = 0;
-for (let key in options) {
-  if (typeof(options[key]) === 'object') {
-    for (let i in options[key]) {
-      console.log(`Свойство ${i} имеет значение ${options[key][i]}`);
-      counter++;
-      }  
-    } else {
-      console.log(`Свойство ${key} имеет значение ${options[key]}`);
-      counter++;
-    }
+  carInfo() {
+  console.log(`Марка авто: ${this.brand}, Модель авто: ${this.model}, Рік випуску авто: ${this.releaseYear}, Реєстраційний номер: ${this.numberPlate}`);  
+  if (this.owner) {
+    console.log('Інформація про власника:');
+    return this.owner.sayName();
+  } else {
+    console.log('Це авто ще не має власника.');
   }
-  console.log(counter);
 
-// либо с помощью метода Object.keys()
-console.log(Object.keys(options));
+  }
 
-// строки и массивы имеют свойство length
-console.log(Object.keys(options).length);
+}
 
-// методы можно создавать вручную
-// makeTest: function() {
-//   console.log("Test");
-// }
-options.makeTest();
+let person1 = new Person('Alex', 30);
+console.log(person1);
+
+let person2 = new Person('Maria', 25);
+console.log(person2);
+
+let person3 = new Person('Kirill', 16);
+console.log(person3);
+
+let person4 = new Person('Maria', 15);
+console.log(person4);
 
 
-// деструктуризация объектов (можно вытаскивать отдельные переменные с наших объектов)
-const {border, bg} = options.colors;
-// мы вытащили свойства border и bg в отдельную переменную
-console.log(border)
+let carOne = new Car('Daewoo', 'Lanos', 2006, 'AE2006DC');
+console.log(carOne);
+
+let carTwo = new Car('Mazda', '6', 2010, 'AA2010DC');
+console.log(carTwo);
+
+let carThree = new Car('Seat', 'Ibiza', 2012, 'AC2012DC');
+console.log(carThree);
+
+let carFour = new Car('Renault', 'Logan', 2018, 'BC2018KA');
+console.log(carFour);
+
+carOne.assignOwner(person1);
+carTwo.assignOwner(person2);
+carThree.assignOwner(person3);
+carFour.assignOwner(person4);
+
+carOne.carInfo();
+carTwo.carInfo();
+carThree.carInfo();
+carFour.carInfo();
