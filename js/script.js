@@ -1,76 +1,83 @@
 class Person {
-  constructor(name, age) {
+  constructor(name, gender) {
     this.name = name;
-    this.age = age;
+    this.gender = gender;
   }
   sayName() {
-    console.log(`Ім'я: ${this.name}`, `Вік: ${this.age}`)
-  } 
+    console.log(`Ім'я: ${this.name}`, `Стать: ${this.gender}`)
+  }
 }
 
-class Car {
-  brand;
-  model;
-  releaseYear;
-  numberPlate;
-  constructor(brand, model, releaseYear, numberPlate) {
-    this.brand = brand;
-    this.model = model;
-    this.releaseYear = releaseYear;
-    this.numberPlate = numberPlate;
+class Apartment {
+  residents = [];
+  addResidents(resi) {
+    this.residents.push(resi);
+    return 
   }
-  assignOwner(owner) {
-    if (owner.age >= 18) {
-      return this.owner = owner;
-    } else if (owner.age < 18) {
-      return console.log(`Власнику ${owner.name} ще немає 18 років`);
+}
+
+
+const maxNumberOfFlats = 4;
+class Building {
+  flats = [];
+  constructor(maxNumberOfFlats) {
+    this.maxNumberOfFlats = maxNumberOfFlats;
+  }
+  addApartment(flat) {
+    if (this.flats.length < maxNumberOfFlats) {
+      this.flats.push(flat);
+    } else {
+      console.log('Вибачте, але всі квартири в цьому будинку вже куплені');
     }
+    return;
   }
-
-  carInfo() {
-  console.log(`Марка авто: ${this.brand}, Модель авто: ${this.model}, Рік випуску авто: ${this.releaseYear}, Реєстраційний номер: ${this.numberPlate}`);  
-  if (this.owner) {
-    console.log('Інформація про власника:');
-    return this.owner.sayName();
-  } else {
-    console.log('Це авто ще не має власника.');
-  }
-
-  }
-
 }
 
-let person1 = new Person('Alex', 30);
+let person1 = new Person('Kate Smith', 'female');
 console.log(person1);
 
-let person2 = new Person('Maria', 25);
+let person2 = new Person('Daria Lavrinenko', 'female');
 console.log(person2);
 
-let person3 = new Person('Kirill', 16);
+let person3 = new Person('David Bay', 'male');
 console.log(person3);
 
-let person4 = new Person('Maria', 15);
+let person4 = new Person('Alex McGale', 'male');
 console.log(person4);
 
+let person5 = new Person('Kirill Valerianov', 'male');
+console.log(person5);
 
-let carOne = new Car('Daewoo', 'Lanos', 2006, 'AE2006DC');
-console.log(carOne);
 
-let carTwo = new Car('Mazda', '6', 2010, 'AA2010DC');
-console.log(carTwo);
 
-let carThree = new Car('Seat', 'Ibiza', 2012, 'AC2012DC');
-console.log(carThree);
+let apartment1 = new Apartment();
+console.log(apartment1);
 
-let carFour = new Car('Renault', 'Logan', 2018, 'BC2018KA');
-console.log(carFour);
+let apartment2 = new Apartment();
+console.log(apartment2);
 
-carOne.assignOwner(person1);
-carTwo.assignOwner(person2);
-carThree.assignOwner(person3);
-carFour.assignOwner(person4);
+let apartment3 = new Apartment();
+console.log(apartment3);
 
-carOne.carInfo();
-carTwo.carInfo();
-carThree.carInfo();
-carFour.carInfo();
+let apartment4 = new Apartment();
+console.log(apartment4);
+
+let apartment5 = new Apartment();
+console.log(apartment5);
+
+apartment1.addResidents(person1);
+apartment2.addResidents(person2);
+apartment3.addResidents(person3);
+apartment4.addResidents(person4);
+apartment5.addResidents(person5);
+
+
+
+let building1 = new Building();
+console.log(building1);
+
+building1.addApartment(apartment1);
+building1.addApartment(apartment2);
+building1.addApartment(apartment3);
+building1.addApartment(apartment4);
+building1.addApartment(apartment5);
