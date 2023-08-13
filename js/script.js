@@ -1,83 +1,84 @@
-class Person {
-  constructor(name, gender) {
+class Hamburger {
+  constructor(size, stuffing, name) {
     this.name = name;
-    this.gender = gender;
+    this.size = size;
+    this.stuffing = stuffing;
+    this.toppings = [];
   }
-  sayName() {
-    console.log(`Ім'я: ${this.name}`, `Стать: ${this.gender}`)
+  
+  addTopping(topping) {
+    this.toppings.push(topping);
   }
-}
+  
+  calculatePrice() {
+    const priceForSize = this.size.price;
+    const priceForStuffing = this.stuffing.price;
+    const priceForToppings = this.toppings.reduce((total, topping) => total + topping.price, 0);
+    return priceForSize + priceForStuffing + priceForToppings;
+  }
 
-class Apartment {
-  residents = [];
-  addResidents(resi) {
-    this.residents.push(resi);
-    return 
-  }
-}
-
-
-const maxNumberOfFlats = 4;
-class Building {
-  flats = [];
-  constructor(maxNumberOfFlats) {
-    this.maxNumberOfFlats = maxNumberOfFlats;
-  }
-  addApartment(flat) {
-    if (this.flats.length < maxNumberOfFlats) {
-      this.flats.push(flat);
-    } else {
-      console.log('Вибачте, але всі квартири в цьому будинку вже куплені');
-    }
-    return;
+  calculateCalories() {
+    const caloriesForSize = this.size.calories;
+    const caloriesForStuffing = this.stuffing.calories;
+    const caloriesForToppings = this.toppings.reduce((total, topping) => total + topping.calories, 0);
+    return caloriesForSize + caloriesForStuffing + caloriesForToppings;
   }
 }
 
-let person1 = new Person('Kate Smith', 'female');
-console.log(person1);
+class ProductItem {
+  constructor(name, price, calories) {
+    this.name = name;
+    this.price = price;
+    this.calories = calories;
+  }
+}
 
-let person2 = new Person('Daria Lavrinenko', 'female');
-console.log(person2);
+const SIZE_SMALL = new ProductItem('small', 50, 20);
+const SIZE_BIG = new ProductItem('big', 100, 40);
 
-let person3 = new Person('David Bay', 'male');
-console.log(person3);
+const STUFFING_CHEESE = new ProductItem('cheese', 10, 20);
+const STUFFING_LETTUCE = new ProductItem('lettuce', 20, 5);
+const STUFFING_FRIES = new ProductItem('fries', 15, 10);
 
-let person4 = new Person('Alex McGale', 'male');
-console.log(person4);
-
-let person5 = new Person('Kirill Valerianov', 'male');
-console.log(person5);
-
-
-
-let apartment1 = new Apartment();
-console.log(apartment1);
-
-let apartment2 = new Apartment();
-console.log(apartment2);
-
-let apartment3 = new Apartment();
-console.log(apartment3);
-
-let apartment4 = new Apartment();
-console.log(apartment4);
-
-let apartment5 = new Apartment();
-console.log(apartment5);
-
-apartment1.addResidents(person1);
-apartment2.addResidents(person2);
-apartment3.addResidents(person3);
-apartment4.addResidents(person4);
-apartment5.addResidents(person5);
+const TOPPING_SPICE = new ProductItem('spice', 15, 0);
+const TOPPING_MAYO = new ProductItem('mayo', 20, 5);
 
 
 
-let building1 = new Building();
-console.log(building1);
+const hamburgerCheese = new Hamburger(SIZE_SMALL, STUFFING_CHEESE, 'the Spicy Hamburger');
+hamburgerCheese.addTopping(TOPPING_SPICE);
+console.log(hamburgerCheese);
 
-building1.addApartment(apartment1);
-building1.addApartment(apartment2);
-building1.addApartment(apartment3);
-building1.addApartment(apartment4);
-building1.addApartment(apartment5);
+const hamCheeseTP = hamburgerCheese.calculatePrice();
+console.log(`Total price for ${hamburgerCheese.name} is ${hamCheeseTP}`);
+
+const hamCheeseCal = hamburgerCheese.calculateCalories();
+console.log(`Total calories for ${hamburgerCheese.name} is ${hamCheeseCal}`);
+
+
+
+
+const hamburgerMayo = new Hamburger(SIZE_BIG, STUFFING_FRIES, 'the Hamburger with Mayo');
+hamburgerMayo.addTopping(TOPPING_MAYO);
+console.log(hamburgerMayo);
+
+const hamMayoTP = hamburgerMayo.calculatePrice(); 
+console.log(`Total price for ${hamburgerMayo.name} is ${hamMayoTP}`)
+
+const hamMayoCal = hamburgerCheese.calculateCalories();
+console.log(`Total calories for ${hamburgerMayo.name} is ${hamMayoCal}`);
+
+
+
+
+const hamburgerLettuce = new Hamburger(SIZE_SMALL, STUFFING_LETTUCE, 'the Hamburger with Lettuce');
+hamburgerLettuce.addTopping(STUFFING_LETTUCE);
+console.log(hamburgerLettuce);
+
+const hamLettuceTP = hamburgerLettuce.calculatePrice();
+console.log(`Total price for ${hamburgerLettuce.name} is ${hamLettuceTP}`);
+
+const hamLettuceCal = hamburgerLettuce.calculateCalories();
+console.log(`Total calories for ${hamburgerLettuce.name} is ${hamLettuceCal}`);
+
+
