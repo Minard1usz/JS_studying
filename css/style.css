@@ -1,18 +1,24 @@
-#notif {
-  display: none;
-  position: absolute;
-  right: 50%;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgb(206, 10, 10);
-  color: rgb(255, 255, 255);
-  padding: 50px;
-  border: 2px solid rgb(0, 0, 0);
+.slider {
+  margin: 50px auto;
+  width: 50%;
 }
 
-#text-block {
-  background-color: rgb(202, 202, 202);
-  border: 2px solid rgb(0, 80, 76);
-  width: 300px;
-  border-radius: 5px;
+.img-box img {
+  width: 800px;
+  height: 450px;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  background: #c21d1d;
+  padding: 10px 30px;
+  font-size: 20px;
+  color: #ffffff;
+  cursor: pointer;
+  margin: 10px auto;
+}
+
+.btn:hover {
+  background: #111;
 }
