@@ -22,3 +22,8 @@
 .btn:hover {
   background: #111;
 }
+
+.buttons-wrap {
+  display: flex;
+  justify-content: center;
+}
