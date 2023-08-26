@@ -27,9 +27,7 @@ function setImg() {
 slider_img.setAttribute('src', 'images/' + images[i]);
 }
 
-// prevBtn.addEventListener('blur', () => {
-//     prevBtn.style.display = 'none';
-// });
+
 
 function updateButtonState() {
     if (i <= 0) {
