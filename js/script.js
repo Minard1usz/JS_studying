@@ -1,44 +1,16 @@
-let slider_img = document.querySelector('.slider-img');
-let images = ['1.jpg', '2.jpeg', '3.webp', '4.jpg', '5.jpeg', '6.jpg', '7.png', '8.jpg', '9.jpg'];
-let i = 0;
+const tableCarcass = document.getElementById("table-carcass");
 
-let prevBtn = document.getElementById('prev-btn');
-let nextBtn = document.getElementById('next-btn');
+let counter = 1;
 
-function prev() {
-    if (i <= 0) {
-     i = images.length;
-    }
-     i--;
-    setImg();
-    updateButtonState();
-}
+for (let i = 0; i < 10; i++) {
+  const row = document.createElement("tr");
 
-function next() {
-    if (i >= images.length - 0) {
-    i = 0;
-    }
-    i++;
-    setImg();
-    updateButtonState();
-}
+  for (let j = 0; j < 10; j++) {
+    const cell = document.createElement("td");
+    cell.textContent = counter;
+    row.appendChild(cell);
+    counter++;
+  }
 
-function setImg() {
-slider_img.setAttribute('src', 'images/' + images[i]);
-}
-
-
-
-function updateButtonState() {
-    if (i <= 0) {
-        prevBtn.style.display = 'none';
-    } else {
-        prevBtn.style.display = 'block';
-    }
-    
-    if (i >= images.length - 1) {
-        nextBtn.style.display = 'none';
-    } else {
-        nextBtn.style.display = 'block';
-    }
+  tableCarcass.appendChild(row);
 }

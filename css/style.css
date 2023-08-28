@@ -1,29 +1,17 @@
-.slider {
-  margin: 50px auto;
+table {
+  border-collapse: collapse;
   width: 50%;
+  margin: auto;
 }
 
-.img-box img {
-  width: 800px;
-  height: 450px;
+#table-carcass {
+  background-color: rgb(30, 160, 165);
 }
 
-.btn {
-  border: none;
-  outline: none;
-  background: #c21d1d;
-  padding: 10px 30px;
-  font-size: 20px;
-  color: #ffffff;
-  cursor: pointer;
-  margin: 10px auto;
-}
-
-.btn:hover {
-  background: #111;
-}
-
-.buttons-wrap {
-  display: flex;
-  justify-content: center;
+table,
+.thead,
+td {
+  border: 1px solid black;
+  text-align: center;
+  padding: 20px;
 }
