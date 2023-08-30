@@ -1,16 +1,22 @@
-const tableCarcass = document.getElementById("table-carcass");
+const voteElements = ['😀', '😊', '🤨', '😕', '🤬'];
+let voteData = Array(voteElements.length).fill(0);
 
-let counter = 1;
+function updateVotingNumber() {
+  const voteCountsBlock = document.getElementById('voteNumber');
+  voteCountsBlock.innerHTML = '';
 
-for (let i = 0; i < 10; i++) {
-  const row = document.createElement("tr");
-
-  for (let j = 0; j < 10; j++) {
-    const cell = document.createElement("td");
-    cell.textContent = counter;
-    row.appendChild(cell);
-    counter++;
+  for (let i = 0; i < voteElements.length; i++) {
+    const face = voteElements[i];
+    const count = voteData[i];
+    const faceElement = document.createElement('div');
+    faceElement.innerText = `${face}: ${count}`;
+    voteCountsBlock.appendChild(faceElement);
   }
-
-  tableCarcass.appendChild(row);
 }
+
+function vote(smileNumber) {
+  voteData[smileNumber]++;
+  updateVotingNumber();
+}
+
+updateVotingNumber();

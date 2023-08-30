@@ -1,17 +1,29 @@
-table {
-  border-collapse: collapse;
-  width: 50%;
-  margin: auto;
+.headline {
+  display: flex;
+  justify-content: center;
 }
 
-#table-carcass {
-  background-color: rgb(30, 160, 165);
+.vote-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-table,
-.thead,
-td {
-  border: 1px solid black;
-  text-align: center;
-  padding: 20px;
+.vote-block div {
+  margin: 0 50px;
+}
+
+.face {
+  font-size: 36px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+#voteNumber {
+  margin-top: 20px;
+}
+
+.vote-results {
+  padding: 0 20px;
 }

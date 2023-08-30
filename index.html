@@ -11,29 +11,20 @@
 <body>
 
     <header>
-        <h1>Hello world!</h1>
+        <h1>Homework 27: Voting</h1>
     </header>
 
     <main>
         <section>
-            <table>
-                <thead>
-                    <tr>
-                        <th class="thead">Column number 1</th>
-                        <th class="thead">Column number 2</th>
-                        <th class="thead">Column number 3</th>
-                        <th class="thead">Column number 4</th>
-                        <th class="thead">Column number 5</th>
-                        <th class="thead">Column number 6</th>
-                        <th class="thead">Column number 7</th>
-                        <th class="thead">Column number 8</th>
-                        <th class="thead">Column number 9</th>
-                        <th class="thead">Column number 10</th>
-                    </tr>
-                </thead>
-                <tbody id="table-carcass">
-                </tbody>
-            </table>
+            <h1 class="headline">Click on a smile to vote</h1>
+            <div class="vote-block">
+                <div class="face" onclick="vote(0)">😀</div>
+                <div class="face" onclick="vote(1)">😊</div>
+                <div class="face" onclick="vote(2)">🤨</div>
+                <div class="face" onclick="vote(3)">😕</div>
+                <div class="face" onclick="vote(4)">🤬</div>
+            </div>
+            <div class="vote-block vote-results" id="voteNumber"></div>
         </section>
     </main>
 
