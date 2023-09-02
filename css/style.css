@@ -1,29 +1,25 @@
-.headline {
-  display: flex;
-  justify-content: center;
-}
-
-.vote-block {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.vote-block div {
-  margin: 0 50px;
-}
-
-.face {
-  font-size: 36px;
-  margin: 10px;
+.categories-list,
+.goods,
+.goods-info {
+  float: left;
+  border: 1px solid #ccc;
+  padding: 10px;
   cursor: pointer;
 }
 
-#voteNumber {
-  margin-top: 20px;
+.categories-list {
+  width: 20%;
 }
 
-.vote-results {
-  padding: 0 20px;
+.goods {
+  width: 40%;
+}
+
+.goods-info {
+  width: 35%;
+}
+
+.goods-name {
+  background-color: rgb(255, 254, 180);
+  color: rgb(0, 0, 0);
 }

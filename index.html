@@ -11,20 +11,32 @@
 <body>
 
     <header>
-        <h1>Homework 27: Voting</h1>
+        <h1>Homework 28: Online shop</h1>
     </header>
 
     <main>
-        <section>
-            <h1 class="headline">Click on a smile to vote</h1>
-            <div class="vote-block">
-                <div class="face" onclick="vote(0)">😀</div>
-                <div class="face" onclick="vote(1)">😊</div>
-                <div class="face" onclick="vote(2)">🤨</div>
-                <div class="face" onclick="vote(3)">😕</div>
-                <div class="face" onclick="vote(4)">🤬</div>
+        <section class="main-section">
+            <div class="categories-list">
+                <h2>Категорії</h2>
+                <ul>
+                    <li class="category" data-category="cars">Автомобілі</li>
+                    <li class="category" data-category="bicycles">Велосипеди</li>
+                    <li class="category" data-category="motorbikes">Мотоцикли</li>
+                    <li class="category" data-category="scooters">Електросамокати</li>
+                    <li class="category" data-category="rollerblades">Ролики</li>
+                </ul>
             </div>
-            <div class="vote-block vote-results" id="voteNumber"></div>
+
+            <div class="goods">
+                <h2>Товари</h2>
+                <ul class="goods-list"></ul>
+            </div>
+
+            <div class="goods-info">
+                <h2>Інформація про товар</h2>
+                <p class="goods-name"></p>
+                <button class="buy-btn">Купити товар</button>
+            </div>
         </section>
     </main>
 
