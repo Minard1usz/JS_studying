@@ -78,7 +78,7 @@ categories.forEach(category => {
       li.addEventListener('click', () => {
         goodsName.textContent = `${goods.name} - ${goods.info}`;
         buyButton.addEventListener('click', () => {
-          alert(`Товар "${goods.name}" куплений!`);
+          li.goods = alert(`Товар "${goods.name}" куплений!`);
           goodsName.textContent = '';
           goodsList.textContent = '';
           buyButton.removeEventListener('click', null);
