@@ -11,32 +11,68 @@
 <body>
 
     <header>
-        <h1>Homework 28: Online shop</h1>
+        <h1>Homework 29: Форма для реєстрації</h1>
     </header>
 
     <main>
         <section class="main-section">
-            <div class="categories-list">
-                <h2>Категорії</h2>
-                <ul>
-                    <li class="category" data-category="cars">Автомобілі</li>
-                    <li class="category" data-category="bicycles">Велосипеди</li>
-                    <li class="category" data-category="motorbikes">Мотоцикли</li>
-                    <li class="category" data-category="scooters">Електросамокати</li>
-                    <li class="category" data-category="rollerblades">Ролики</li>
-                </ul>
-            </div>
+            <form id="registrationForm">
+                <h2 class="form-headline">Форма для реєстрації</h2>
 
-            <div class="goods">
-                <h2>Товари</h2>
-                <ul class="goods-list"></ul>
-            </div>
+                <label for="firstName">Ім'я:</label>
+                <input type="text" id="firstName" name="firstName" required> <br><br>
 
-            <div class="goods-info">
-                <h2>Інформація про товар</h2>
-                <p class="goods-name"></p>
-                <button class="buy-btn">Купити товар</button>
-            </div>
+                <label for="secondName">Прізвище:</label>
+                <input type="text" id="secondName" name="secondName" required> <br><br>
+
+                <label for="birthDate">Дата народження:</label>
+                <input type="text" id="birthDate" name="birthDate" required> <br><br>
+
+                <label>Стать:</label>
+                <input type="radio" id="male" name="gender" value="Чоловік">
+                <label for="male">Чоловік</label>
+                <input type="radio" id="female" name="gender" value="Жінка">
+                <label for="female">Жінка</label> <br><br>
+
+                <label for="city">Місто</label>
+                <select name="city" id="city">
+                    <option value="Київ">Київ</option>
+                    <option value="Дніпро">Дніпро</option>
+                    <option value="Харків">Харків</option>
+                    <option value="Львів">Львів</option>
+                    <option value="Одеса">Одеса</option>
+                    <option value="Тернопіль">Тернопіль</option>
+                    <option value="Чернівці">Чернівці</option>
+                </select> <br><br>
+
+                <label for="address">Адреса:</label> <br>
+                <textarea name="address" id="address" cols="50" rows="5"></textarea> <br> <br>
+
+                <label>Мови, якими володієте:</label> <br>
+
+                <input type="checkbox" id="ukrainian" name="languages" value="Українська">
+                <label for="ukrainian">Українська</label> <br>
+
+                <input type="checkbox" id="english" name="languages" value="Англійська">
+                <label for="english">Англійська</label> <br>
+
+                <input type="checkbox" id="spanish" name="languages" value="Іспанська">
+                <label for="spanish">Іспанська</label> <br>
+
+                <input type="checkbox" id="german" name="languages" value="Німецька">
+                <label for="german">Німецька</label> <br>
+
+                <input type="checkbox" id="french" name="languages" value="Французька">
+                <label for="french">Французька</label> <br><br>
+
+
+
+
+                <input type="button" value="Зберегти" onclick="displayData()">
+            </form>
+
+            <div id="output"></div>
+
         </section>
     </main>
 
