@@ -81,7 +81,7 @@ categories.forEach(category => {
           li.goods = alert(`Товар "${goods.name}" куплений!`);
           goodsName.textContent = '';
           goodsList.textContent = '';
-          buyButton.removeEventListener('click', null);
+          buyButton.removeEventListener('click', buyButton.addEventListener());
         });
       });
       goodsList.appendChild(li);
