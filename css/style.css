@@ -1,22 +1,17 @@
-.categories-list,
+.main-section {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.categories-wrap,
 .goods,
-.goods-info {
+.goods-info,
+.orderFormWrap {
   float: left;
+  width: 25%;
   border: 1px solid #ccc;
   padding: 10px;
   cursor: pointer;
-}
-
-.categories-list {
-  width: 20%;
-}
-
-.goods {
-  width: 40%;
-}
-
-.goods-info {
-  width: 35%;
 }
 
 .goods-name {
