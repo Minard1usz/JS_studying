@@ -133,15 +133,17 @@ function loadOrdersFromLocalStorage() {
       goodsList.textContent = '';
       goodsName.textContent = '';
       orderForm.style.display = 'none';
-      ordersInfo.innerHTML = '';
-      ordersInfo.appendChild(orderDetails);
+      ordersList.innerHTML = '';
+      ordersList.appendChild(orderDetails);
+
     });
     orderItem.querySelector('.delete-order-btn').addEventListener('click', () => {
       const orders = JSON.parse(localStorage.getItem('orders')) || [];
       orders.splice(index, 1);
       localStorage.setItem('orders', JSON.stringify(orders));
-      loadOrdersFromLocalStorage();
+
     });
+
     ordersInfo.appendChild(orderItem);
   });
 }
