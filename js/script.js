@@ -135,27 +135,34 @@ function loadOrdersFromLocalStorage() {
       orderForm.style.display = 'none';
       ordersList.innerHTML = '';
       ordersList.appendChild(orderDetails);
-
     });
     orderItem.querySelector('.delete-order-btn').addEventListener('click', () => {
-      const orders = JSON.parse(localStorage.getItem('orders')) || [];
-      orders.splice(index, 1);
-      localStorage.setItem('orders', JSON.stringify(orders));
-
+        const orders = JSON.parse(localStorage.getItem('orders')) || [];
+        orders.splice(index, 1);
+        localStorage.setItem('orders', JSON.stringify(orders));
+       
     });
-
     ordersInfo.appendChild(orderItem);
   });
 }
 
 
-myOrdersButton.addEventListener('click', () => {
-  categoriesList.textContent = '';
-  goodsList.textContent = '';
-  goodsName.textContent = '';
-  orderForm.style.display = 'none';
-  loadOrdersFromLocalStorage();
-});
+
+function handleClick() {
+    categoriesList.textContent = '';
+    goodsList.textContent = '';
+    goodsName.textContent = '';
+    orderForm.style.display = 'none';
+    loadOrdersFromLocalStorage();
+    myOrdersButton.removeEventListener('click', handleClick);
+    console.log(myOrdersButton);
+}
+
+function myOrdersBtn() {
+  myOrdersButton.addEventListener('click', handleClick);
+}
+
+myOrdersBtn();
 
 categories.forEach(category => {
   orderForm.style.display = 'none';
@@ -207,6 +214,7 @@ categories.forEach(category => {
           };
 
             saveOrderToLocalStorage(order);
+
           
           const orderInfo = document.createElement('div');
           orderInfo.innerHTML = `
@@ -223,7 +231,6 @@ categories.forEach(category => {
           `;
           goodsName.textContent = '';
           goodsList.textContent = '';
-          orderForm.textContent = '';
           document.body.appendChild(orderInfo);
         });
       });
