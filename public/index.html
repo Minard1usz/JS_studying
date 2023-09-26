@@ -11,89 +11,39 @@
 <body>
 
     <header>
-        <h1>Homework 31. LocalStorage</h1>
+        <h1>Homework 35. Ajax Weather</h1>
     </header>
 
     <main>
         <section class="main-section">
             <div>
-                <button class="my-orders-btn">Мої замовлення</button>
-            </div>
-            <div>
-                <div class="orders-container"></div>
-                <div class="orders-info"></div>
-                <div class="orders-list"></div>
-            </div>
-            <div class="categories-wrap">
-                <h2>Категорії</h2>
-                <ul class="categories-list">
-                    <li class="category" data-category="cars">Автомобілі</li>
-                    <li class="category" data-category="bicycles">Велосипеди</li>
-                    <li class="category" data-category="motorbikes">Мотоцикли</li>
-                    <li class="category" data-category="scooters">Електросамокати</li>
-                    <li class="category" data-category="rollerblades">Ролики</li>
-                </ul>
-            </div>
+                <div>
+                    <p class="city">Kyiv</p>
+                    <hr>
+                    <p class="degree">10&deg;</p>
+                    <p class="description">Clouds</p>
+                    <ul class="features">
 
-            <div class="goods">
-                <h2>Товари</h2>
-                <ul class="goods-list"></ul>
+                    </ul>
+                    <hr>
+                    <div>
+                        <p>humidity</p>
+                        <p class="humidity"></p>
+                    </div>
+                    <hr>
+                    <div>
+                        <p>pressure</p>
+                        <p class="pressure"></p>
+
+                    </div>
+                    <hr>
+                    <div>
+                        <p>speed</p>
+                        <p class="speed"></p>
+                    </div>
+                    <hr>
+                </div>
             </div>
-
-            <div class="goods-info">
-                <h2>Інформація про товар</h2>
-                <p class="goods-name"></p>
-                <button class="buy-btn">Купити товар</button>
-            </div>
-
-            <div class="orderFormWrap">
-                <h2>Форма оформлення замовлення</h2>
-                <form id="orderForm">
-                    <div>
-                        <label for="fullName">ПІБ покупця:</label>
-                        <input type="text" id="fullName">
-                    </div>
-                    <div>
-                        <label for="city">Місто:</label>
-                        <select id="city">
-                            <option value="Київ">Київ</option>
-                            <option value="Дніпро">Дніпро</option>
-                            <option value="Харків">Харків</option>
-                            <option value="Одеса">Одеса</option>
-                            <option value="Львів">Львів</option>
-                            <option value="Чернівці">Чернівці</option>
-                            <option value="Івано-Франківськ">Івано-Франківськ</option>
-                            <option value="Миколаїв">Миколаїв</option>
-                            <option value="Рівне">Рівне</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="novaPoshtaOffice">Склад Нової Пошти:</label>
-                        <input type="text" id="novaPoshtaOffice">
-                    </div>
-                    <div>
-                        <label for="paymentMethod">Післяплата або оплата банківською карткою:</label> <br>
-                        <select id="paymentMethod">
-                            <option value="Післяплата">Післяплата</option>
-                            <option value="Банківською картою">Банківською картою</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="quantity">Кількість товару:</label>
-                        <input type="number" id="quantity" min="1">
-                    </div>
-                    <div>
-                        <label for="comment">Коментар до замовлення:</label> <br>
-                        <textarea id="comment" cols="50" rows="5"></textarea>
-                    </div>
-                    <div>
-                        <button type="submit" class="subm-btn">Підтвердити замовлення</button>
-                    </div>
-                </form>
-
-
-            </div>
-
         </section>
     </main>
 
