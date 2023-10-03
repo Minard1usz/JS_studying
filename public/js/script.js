@@ -1,16 +1,57 @@
-fetch('http://api.openweathermap.org/data/2.5/weather?q=LVIV&units=metric&APPID=5d066958a60d315387d9492393935c19')
-  .then(function (resp) {return resp.json()})
-  .then(function (data) {
-    console.log(data);
-    document.querySelector('.city').textContent = data.name;
-    document.querySelector('.degree').innerHTML = Math.round(data.main.temp) + '&deg';
-    document.querySelector('.description').textContent = data.weather[0].description;
-    document.querySelector('.humidity').textContent = data.main.humidity;
-    document.querySelector('.pressure').textContent = data.main.pressure;
-    document.querySelector('.speed').textContent = data.wind.speed;
-    document.querySelector('.features').innerHTML = `<img src="https://openweathermap.org/img/wn/${data.weather[0]['icon']}@2x.png">`;
-  })
+function fetchPostById(id) {
+    return fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Пост не знайдено');
+            }
+            return response.json();
+        });
+}
 
-  .catch(function () {
-    // catch any errors
-  })
+function fetchCommentsByPostId(id) {
+    return fetch(`https://jsonplaceholder.typicode.com/posts/${id}/comments`)
+        .then(response => response.json());
+}
+
+function displayPost(post) {
+    const postContainer = document.getElementById('postContainer');
+    postContainer.innerHTML = `
+        <h2 class="h2head">${post.title}</h2>
+        <p>${post.body}</p>
+        <button onclick="fetchComments(${post.id})">Переглянути коментарі</button>
+    `;
+}
+
+function displayComments(comments) {
+    const postContainer = document.getElementById('postContainer');
+    const commentsList = document.createElement('ul');
+    comments.forEach(comment => {
+        const commentItem = document.createElement('li');
+        commentItem.textContent = comment.body;
+        commentsList.appendChild(commentItem);
+    });
+    postContainer.appendChild(commentsList);
+}
+
+function fetchComments(postId) {
+    fetchCommentsByPostId(postId)
+        .then(comments => {
+            displayComments(comments);
+        })
+        .catch(error => {
+            alert('Не вдалося отримати коментарі.');
+            console.error(error);
+        });
+}
+
+function searchPost() {
+    const postId = document.getElementById('postId').value;
+    fetchPostById(postId)
+        .then(post => {
+            displayPost(post);
+        })
+        .catch(error => {
+            alert('Пост не знайдено.');
+            console.error(error);
+        });
+}
