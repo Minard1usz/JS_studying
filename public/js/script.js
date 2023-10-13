@@ -1,5 +1,6 @@
 const car = { brand: "", model: "", color: "" };
 const updatedProperties = Object.assign(car, {type: ""});
+console.log(car);
 
 const electro = Object.assign({}, car);
 electro.type = "electro";
@@ -17,11 +18,13 @@ const models = {
   kenga: {...common, brand: "Renault", model: "Kangoo", gas: "Petrol", gearBox: "mechanic"}
 };
 
-for (let modelName in models) {
-  console.log(modelName + ":");
+
+for (const modelName in models) {
   const model = models[modelName];
-  for (let [key, value] of Object.entries(model)) {
-    console.log(`${key}: ${value}`);
-  }
-  console.log();
+
+  let modelInfo = modelName + ":\n";
+  Object.entries(model).forEach(([key, value]) => {
+    modelInfo += `${key}: "${value}", `;
+  });
+  console.log(modelInfo.slice(0, -2) + "\n");
 }
