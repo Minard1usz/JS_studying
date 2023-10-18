@@ -1,0 +1,27 @@
+.App {
+  text-align: center;
+}
+
+.todoWrap {
+  margin: 0;
+  text-align: center;
+}
+
+.todoThingsWrap {
+  margin: 0 auto;
+  width: 400px;
+}
+
+.todoThings {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.deleteBtn {
+  margin-left: 100px;
+}
+
+.spanStyle {
+  cursor: pointer;
+}
