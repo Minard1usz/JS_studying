@@ -1,0 +1,31 @@
+.App {
+  text-align: center;
+}
+
+.formName {
+  text-align: center;
+}
+
+.formWrap {
+  padding: 100px;
+  background: #639de9;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.spanField {
+  width: 100%;
+}
+
+.sendBtn {
+  margin-top: 20px;
+}
