@@ -1,50 +1,67 @@
-import './App.css';
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { addTodo, deleteTodo, toggleTodo, editTodo } from './actions';
 
-function ToDoApp() {
-  const [todos, setTodos] = useState([]);
+function TodoApp({ todos, addTodo, deleteTodo, toggleTodo, editTodo }) {
   const [inputText, setInputText] = useState('');
+  const [editingIndex, setEditingIndex] = useState(-1);
 
-  const addTodo = () => {
+  const handleAddTodo = () => {
     if (inputText.trim() !== '') {
-      setTodos([...todos, {text: inputText, done: false}]);
+      addTodo(inputText);
       setInputText('');
     }
   };
 
-  const toggleTodo = (index) => {
-    const newTodos = [...todos];
-    newTodos[index].done = !newTodos[index].done;
-    setTodos(newTodos);
-  }
-
-  const deleteTodo = (index) => {
-    const newTodos = [...todos];
-    newTodos.splice(index, 1);
-    setTodos(newTodos);
+  const handleEditTodo = (index) => {
+    if (inputText.trim() !== '') {
+      editTodo(index, inputText);
+      setInputText('');
+      setEditingIndex(-1);
+    }
   };
 
   return (
-    <div className='todoWrap'>
+    <div>
       <h1>Todo List</h1>
       <div>
         <input
-        type="text"
-        placeholder="Додати нове завдання"
-        value={inputText}
-        onChange={(e) => setInputText(e.target.value)}
+          type="text"
+          placeholder="Додати нове завдання"
+          value={inputText}
+          onChange={(e) => setInputText(e.target.value)}
         />
-        <button onClick={addTodo}>Додати</button>
+        {editingIndex === -1 ? (
+          <button onClick={handleAddTodo}>Додати</button>
+        ) : (
+          <button onClick={() => handleEditTodo(editingIndex)}>Зберегти</button>
+        )}
       </div>
-      <ul className='todoThingsWrap'>
+      <ul>
         {todos.map((todo, index) => (
-          <li className='todoThings' key={index}>
-            <span className='spanStyle' style={{textDecoration: todo.done ? 'line-through' : 'none'}}
+          <li key={index}>
+            <span
+              style={{ textDecoration: todo.done ? 'line-through' : 'none' }}
               onClick={() => toggleTodo(index)}
-             > 
-             {todo.text} 
+            >
+              {editingIndex === index ? (
+                <input
+                  type="text"
+                  value={inputText}
+                  onChange={(e) => setInputText(e.target.value)}
+                />
+              ) : (
+                todo.text
+              )}
             </span>
-            <button className='deleteBtn' onClick={() => deleteTodo(index)}>Видалити</button>
+            {editingIndex === index ? (
+              <button onClick={() => handleEditTodo(index)}>Зберегти</button>
+            ) : (
+              <>
+                <button onClick={() => setEditingIndex(index)}>Редагувати</button>
+                <button onClick={() => deleteTodo(index)}>Видалити</button>
+              </>
+            )}
           </li>
         ))}
       </ul>
@@ -52,4 +69,10 @@ function ToDoApp() {
   );
 }
 
-export default ToDoApp;
+const mapStateToProps = (state) => ({
+  todos: state.todos,
+});
+
+export default connect(mapStateToProps, { addTodo, deleteTodo, toggleTodo, editTodo })(
+  TodoApp
+);
