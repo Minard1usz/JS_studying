@@ -1,3 +1,17 @@
 .App {
   text-align: center;
 }
+
+.headerSection {
+  margin-top: 20px;
+}
+
+.linksWrap {
+  display: flex;
+  gap: 20px;
+}
+
+.classLinks {
+  text-decoration: solid;
+  font-weight: bold;
+}
